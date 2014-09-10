@@ -1,0 +1,18 @@
+    <!--These things {% PYTHON THINGS %} contain control statements-any codey things that control what is shown go inside.-->>
+<html>
+  <head>
+    {% if title %}
+    <title>{{title}} - microblog</title>
+    {% else %}
+    <title>microblog</title>
+    {% endif %}
+  </head>
+  <body>
+
+<!--href inside a references other files in your templates folder. So, that file fills in the stuff that is different, while this file takes care of what stays the same -->
+    <div>Microblog: <a href="/index">Home</a></div>
+
+    <hr>
+    {% block content %}{% endblock %}
+  </body>
+</html>
