@@ -1,4 +1,11 @@
-<!--this thing calls three variables: title, post, and user. they come from the views page and can be passed along if they are inside {{ }}-->
+
+<html>
+<body>Hello!
+	<img src=url_for('static', filename="{{thePic}}") style="width:128px;height:128px">
+</body>
+</html>
+
+{#<!--this thing calls three variables: title, post, and user. they come from the views page and can be passed along if they are inside {{ }}-->
 <!--{% extends "base.html" %}
 {% block content %} -->
 
@@ -9,8 +16,4 @@
 <div><p>{{post.author.nickname}} says: <b>{{post.body}}</b></p></div>
 
 {% end for %}
-{% endblock %} -->
-<html>
-
- <img src={{thePic}} style="width:128px;height:128px"> 
- </html>
+{% endblock %} -->#}

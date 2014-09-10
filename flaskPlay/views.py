@@ -97,7 +97,7 @@ def index():
 
 def index():
 	thePic= choosePic()+".jpg"
-	return render_template("index.html", thePic=thePic)
+	return render_template("index.html", thePic="/images/"+thePic)
 
 
 #these include the data itself that could be part of the view. The html page controls how it looks and what gets shown
