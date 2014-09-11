@@ -112,5 +112,8 @@ def areyouready():
 def go():
 	return render_template("record.html")
 
+@app.route('/norecord')
+def norecord():
+	return render_template("done.html")
 #these include the data itself that could be part of the view. The html page controls how it looks and what gets shown
 #def THE NAME OF THE THING AFTER THE SLASH--different page views

@@ -1,7 +1,34 @@
 <html>
+<head>
+	<script>
+function hasGetUserMedia() {
+
+  return !!(navigator.getUserMedia || navigator.webkitGetUserMedia ||
+            navigator.mozGetUserMedia || navigator.msGetUserMedia);
+}
+
+if (hasGetUserMedia()) { 
+
+	setTimeout(function() {window.location.href='{{url_for('norecord') }}'},1000);
+
+} else {
+
+  alert('getUserMedia() is not supported in your browser');
+}
+
+</script>
+
+ </head>
 <body>
-	What does {{thePic}} make you think of? <br>
+
+	Tell us! <br>
 	<img src='{{ url_for('static', filename='/images/'~thePic ~'.jpg') }}' style="width:500px;height:500px", align='middle'>
+
+
+
+	
+
+
 
 </body>
 
