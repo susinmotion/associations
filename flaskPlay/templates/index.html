@@ -1,8 +1,11 @@
 
 <html>
 <body>
-	<img src='{{ url_for('static', filename=thePic ) }}' style="width:500px;height:500px">
+	<img src='{{ url_for('static', filename=thePic ~'.jpg') }}' style="width:500px;height:500px", align='middle'>
 
+ <audio autoplay=true>
+<source src='{{ url_for('static', filename=thePic ~ '.wav') }} ' type="audio/wav" >
+</audio> 
 </body>
 </html>
 

@@ -98,7 +98,6 @@ def index():
 def index():
 	thePic= choosePic()
 	if thePic != None:
-		thePic=thePic+".jpg"
 		return render_template("index.html", thePic="/images/"+thePic)
 	else:
 		return render_template("done.html")
