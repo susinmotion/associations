@@ -1,12 +1,18 @@
 
 <html>
 <body>
-	<img src='{{ url_for('static', filename=thePic ~'.jpg') }}' style="width:500px;height:500px", align='middle'>
+	<img src='{{ url_for('static', filename='/images/'~thePic ~'.jpg') }}' style="width:500px;height:500px", align='middle'>
 
  <audio autoplay=true>
 <source src='{{ url_for('static', filename=thePic ~ '.wav') }} ' type="audio/wav" >
 </audio> 
 </body>
+
+
+<script> setTimeout(function() {window.location.href='{{url_for('areyouready') }}'},5000);
+</script>
+
+
 </html>
 
 

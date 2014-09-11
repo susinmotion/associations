@@ -49,7 +49,7 @@ def closePic(aPic):
 #	if os.path.exists(aPic)
 	image.close(aPic)	
 
-def experiment():
+"""def experiment():
 	thePic=choosePic()
 	if thePic==None:
 		return None
@@ -58,11 +58,12 @@ def experiment():
 	time.sleep(5)
 	closePic(thePic)
 	if checkContinue():
-		experiment()
+		experiment()"""
 
 
-global wordList
+global wordList, thePic
 wordList=fileOpen()
+thePic=choosePic()
 #experiment()
 #thePic=choosePic()+".jpg"
 
@@ -96,12 +97,20 @@ def index():
 #these include the data itself that could be part of the view. The html page controls how it looks and what gets shown
 
 def index():
-	thePic= choosePic()
 	if thePic != None:
-		return render_template("index.html", thePic="/images/"+thePic)
+		return render_template("index.html", thePic=thePic)
 	else:
 		return render_template("done.html")
 
+@app.route('/areyouready')
+
+def areyouready():
+	return render_template("areyouready.html", thePic=  thePic)
+
+
+@app.route('/gopicrecordcantremember12341234630fje')
+def go():
+	return render_template("record.html")
 
 #these include the data itself that could be part of the view. The html page controls how it looks and what gets shown
 #def THE NAME OF THE THING AFTER THE SLASH--different page views
