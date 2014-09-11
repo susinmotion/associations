@@ -2,7 +2,7 @@
 from flask import Flask
 
 #NAME OF YOUR MODULE =...
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='')
 
 #talk to config object...not sure about naming here.
 #app.config.from_object('config')
