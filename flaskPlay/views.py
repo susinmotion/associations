@@ -96,12 +96,11 @@ def index():
 #these include the data itself that could be part of the view. The html page controls how it looks and what gets shown
 
 def index():
-	thePic= choosePic()+".jpg"
+	thePic= choosePic()
 	if thePic != None:
-		print thePic
+		thePic=thePic+".jpg"
 		return render_template("index.html", thePic="/images/"+thePic)
 	else:
-		print thePic
 		return render_template("done.html")
 
 
