@@ -69,28 +69,7 @@ thePic=choosePic()
 
 
 
-"""#def THE NAME OF THE THING AFTER THE SLASH--different page views
-def index():
-	user = { 'nickname': 'Miguel' } 
-	posts = [ # fake array of posts
-	{ 
-	'author': { 'nickname': 'John' }, 
-	'body': 'Beautiful day in Portland!' 
-	},
-	{ 
-	'author': { 'nickname': 'Susan' }, 
-	'body': 'The Avengers movie was so cool!' 
-	}
-	]
-	# return render_template THE NAME OF THE FILE IN THE TEMPLATES FOLDER, VARIABLE NAMES AND VALUES
-	return render_template("index.html",
-		title = 'Home',
-		user = user,
-		posts = posts)
-
-	from associations import app
-@app.route('/')
-@app.route('/index')"""
+"""#def THE NAME OF THE THING AFTER THE SLASH--different page views"""
 
 @app.route('/')
 @app.route('/index')
@@ -114,6 +93,6 @@ def go():
 
 @app.route('/norecord')
 def norecord():
-	return render_template("done.html")
+	return render_template("audioerror.html")
 #these include the data itself that could be part of the view. The html page controls how it looks and what gets shown
 #def THE NAME OF THE THING AFTER THE SLASH--different page views

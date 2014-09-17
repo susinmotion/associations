@@ -1,37 +1,71 @@
 <html>
 <head>
-	<script>
-function hasGetUserMedia() {
+    hii!
+	 </head>
 
-  return !!(navigator.getUserMedia || navigator.webkitGetUserMedia ||
-            navigator.mozGetUserMedia || navigator.msGetUserMedia);
-}
 
-if (hasGetUserMedia()) { 
 
-	setTimeout(function() {window.location.href='{{url_for('norecord') }}'},1000);
+<audio autoplay >
+</audio>
+        <script type="text/javascript" src='{{url_for('static', filename="record.js")}}'>  </script>
+   <fieldset><legend>RECORD AUDIO</legend>
 
-} else {
+        <input onclick="stopRecording()" type="button" value="stop recording and play" />
+                </fieldset>
+<script>
+            var onFail = function(e) {
+                console.log('Rejected!', e);
+            };
 
-  alert('getUserMedia() is not supported in your browser');
-}
+            var onSuccess = function(s) {
+                var context = new AudioContext();
+                var mediaStreamSource = context.createMediaStreamSource(s);
+                recorder = new Recorder(mediaStreamSource);
+                recorder.record();
+                window.setTimeout(function() {recorder.stop()}, 2000);
+                //window.setTimeout(function() {recorder.exportWAV(function(s) { audio.src = window.URL.createObjectURL(s)}) }, 2010);
+                window.setTimeout(function ()  { console.log(window.URL.createObjectURL(s))}, 2010);
+                window.setTimeout(function() {recorder.clear()}, 2020);
+                //window.setTimeout(function() {Recorder.forceDownload(s, filename="TestFile9.16.wav")}, 2030);
+                // audio loopback
+                // mediaStreamSource.connect(context.destination);
+            }
 
+            window.URL = window.URL || window.webkitURL;
+            navigator.getUserMedia  = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+
+            var recorder;
+            var audio = document.querySelector('audio');
+
+            function startRecording() {
+                if (navigator.getUserMedia) {
+                    navigator.getUserMedia({audio: true}, onSuccess, onFail);
+
+                } else {
+                    console.log('navigator.getUserMedia not present');
+                }
+            }
+
+            function stopRecording() {
+                recorder.stop();
+                recorder.exportWAV(function(s) {
+
+                                audio.src = window.URL.createObjectURL(s);
+                });
+            }
+
+        startRecording();
+        //window.setTimeout(function() {stopRecording()}, 2000);
 </script>
 
- </head>
 <body>
 
 	Tell us! <br>
 	<img src='{{ url_for('static', filename='/images/'~thePic ~'.jpg') }}' style="width:500px;height:500px", align='middle'>
 
 
-
-	
-
-
-
 </body>
 
-
+	
 
 </html>
